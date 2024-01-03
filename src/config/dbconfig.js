@@ -3,11 +3,11 @@ const tedious = require("tedious");
 const { DefaultAzureCredential } = require("@azure/identity");
 require('dotenv').config();
 const sequelize = new Sequelize(
-  process.env.DATABASE,
-  process.env.USER_NAME,
-  process.env.PASSWORD,
+  "SharvayaFranchise",
+  "SharvayaFranchise",
+  "sharvaya@2024$",
   {
-    host: process.env.SERVER,
+    host: "43.231.126.253",
     dialect: 'mssql',
     dialectModule: tedious,
     authentication: {
