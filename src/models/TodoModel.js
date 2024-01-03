@@ -11,6 +11,7 @@ const getAllTask = async () => {
     );
     return tasks;
   } catch (err) {
+    console.log(err);
     return err
   }
 };
