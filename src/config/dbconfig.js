@@ -9,6 +9,11 @@ const sequelize = new Sequelize(
   {
     host: "43.231.126.253",
     dialect: 'mssql',
+    pool: {
+      max: 5,
+      min: 0,
+      idle: 10000,
+    },
     dialectModule: tedious,
     authentication: {
       type: "azure-active-directory-access-token",
