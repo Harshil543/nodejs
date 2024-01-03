@@ -15,7 +15,7 @@ const getAllTasksController = async (req, res) => {
     // const TaskList = await getAlltaskService();
     res.json({ ...response, data: tasks });
   } catch (error) {
-    res.status(500).send({ sequelize: sequelize, error: error, message: "Internal Server Error" });
+    res.status(500).send({ error: sequelize, message: "Internal Server Error" });
   }
 };
 
