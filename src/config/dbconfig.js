@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   process.env.PASSWORD,
   {
     host: process.env.SERVER,
-    dialect: process.env.DIALECT,
+    dialect: 'mssql',
     dialectModule: tedious,
     authentication: {
       type: "azure-active-directory-access-token",
