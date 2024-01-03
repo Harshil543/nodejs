@@ -1,12 +1,23 @@
-const http = require('http');
-const PORT = 3000;
+const express = require("express");
+const app = express();
+const port = 3000;
+const router = require("./src/routes/TodoRoutes");
+const cors = require('cors');
+var bodyParser = require('body-parser')
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World!');
-});
+const corsOptions = {
+  origin: '*',
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
 
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
+app.use(cors(corsOptions));
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use("/", router);
+
+app.listen(port, () => {
+  console.log(`Server is running on ${port}`);
 });
